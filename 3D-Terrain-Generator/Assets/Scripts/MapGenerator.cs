@@ -6,6 +6,9 @@ public class MapGenerator : MonoBehaviour
 {
     [SerializeField] DrawMode drawMode;
 
+    [SerializeField] ScriptableMap mapData;
+
+    [SerializeField] string mapName;
     [SerializeField] int mapWidth;
     [SerializeField] int mapHeight;
     [SerializeField] float noiseScale;
@@ -63,6 +66,58 @@ public class MapGenerator : MonoBehaviour
 
     }
 
+    public ScriptableMap PrepareMapDataForSave()
+    {
+        ScriptableMap tempMapData = new ScriptableMap();
+        tempMapData.MapName = mapName;
+        tempMapData.MapWidth = mapWidth;
+        tempMapData.MapHeight = mapHeight;
+        tempMapData.NoiseScale = noiseScale;
+        tempMapData.NumberOfOctaves = numberOfOctaves;
+        tempMapData.Persistance = persistance;
+        tempMapData.Lacunarity = lacunarity;
+        tempMapData.Seed = seed;
+        tempMapData.Offset = offset;
+        tempMapData.MeshHeightMultiplier = meshHeightMultiplier;
+        tempMapData.MeshHeightCurve = meshHeightCurve;
+
+        /*
+        [SerializeField] TerrainTypes[] terrainTypes;
+        */
+
+        return tempMapData;
+    }
+
+    public void LoadMapData()
+    {
+        if (mapData != null)
+        {
+            mapName = mapData.MapName;
+
+            mapWidth = mapData.MapWidth;
+            mapHeight = mapData.MapHeight;
+
+            noiseScale = mapData.NoiseScale;
+            numberOfOctaves = mapData.NumberOfOctaves;
+            persistance = mapData.Persistance;
+            lacunarity = mapData.Lacunarity;
+
+            seed = mapData.Seed = seed;
+
+            offset = mapData.Offset = offset;
+
+            meshHeightMultiplier = mapData.MeshHeightMultiplier;
+            meshHeightCurve = mapData.MeshHeightCurve;
+
+            //terrainTypes = mapData.Biome.TerrainConfigurations;
+        }
+        else
+        {
+            print("No Map found! Please select the map you want to load.");
+        }
+        
+    }
+
     private void OnValidate()
     {
         if (mapWidth < 1)
@@ -99,13 +154,11 @@ public class MapGenerator : MonoBehaviour
         public float GetTerrainHeight()
         {
             return height;
-            // return terrainTypesData.Height;
         }
 
         public Color GetTerrainColor()
         {
             return color;
-            // return terrainTypesData.TerrainColor;
         }
     }
 }
