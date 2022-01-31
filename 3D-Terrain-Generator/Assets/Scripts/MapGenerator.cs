@@ -10,8 +10,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] ScriptableBiome biomeData;
 
     [SerializeField] string mapName;
-    [SerializeField] int mapWidth;
-    [SerializeField] int mapHeight;
+    [SerializeField] [Range(1, 100)] int mapWidth;
+    [SerializeField] [Range(1, 100)] int mapHeight;
     [SerializeField] float noiseScale;
 
     [SerializeField] int numberOfOctaves;
@@ -28,6 +28,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] TerrainType[] terrainTypes;
 
     [SerializeField] bool autoUpdate;
+
+    private int mapInstanceID;
 
     // Start is called before the first frame update
     public void GenerateMap()
@@ -131,14 +133,6 @@ public class MapGenerator : MonoBehaviour
 
     private void OnValidate()
     {
-        if (mapWidth < 1)
-        {
-            mapWidth = 1;
-        }
-        if (mapHeight < 1)
-        {
-            mapHeight = 1;
-        }
         if (lacunarity < 1)
         {
             lacunarity = 1;
@@ -147,29 +141,20 @@ public class MapGenerator : MonoBehaviour
         {
             numberOfOctaves = 0;
         }
+        if (mapData && mapData.GetInstanceID() != mapInstanceID)
+        {
+            LoadMapData();
+            GenerateMap();
+            mapInstanceID = mapData.GetInstanceID();
+        }
+        if (biomeData)
+        {
+            terrainTypes = biomeData.TerrainConfigurations;
+        }
     }
 
     public bool GetAutoUpdate()
     {
         return autoUpdate;
     }
-    /*
-    [System.Serializable]
-    public struct TerrainTypes
-    {
-        [SerializeField] private string terrainTypeName;
-        [SerializeField] private float height;
-        [SerializeField] private Color color;
-
-        // [SerializeField] private ScriptableTerrainType terrainTypesData;
-        public float GetTerrainHeight()
-        {
-            return height;
-        }
-
-        public Color GetTerrainColor()
-        {
-            return color;
-        }
-    }*/
 }

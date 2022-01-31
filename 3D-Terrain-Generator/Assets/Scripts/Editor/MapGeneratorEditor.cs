@@ -25,6 +25,7 @@ public class MapGeneratorEditor : Editor
         {
             SaveBiomeToScriptableObject(mapGenerator.GetBiomeNameFromEditor(), mapGenerator.GetBiomeData());
             SaveMapDataToScriptableObject(mapGenerator.PrepareMapDataForSave(), GetSavedBiome(mapGenerator.GetBiomeNameFromEditor()));
+            mapGenerator.GenerateMap();
         }
         if (GUILayout.Button("Load"))
         {
