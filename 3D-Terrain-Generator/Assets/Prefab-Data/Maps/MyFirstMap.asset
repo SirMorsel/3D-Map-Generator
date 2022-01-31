@@ -19,8 +19,8 @@ MonoBehaviour:
   NumberOfOctaves: 5
   Persistance: 0.5
   Lacunarity: 2
-  Seed: 99
-  Offset: {x: 0, y: 0}
+  Seed: 123
+  Offset: {x: 0.8, y: 1.23}
   MeshHeightMultiplier: 51.84
   MeshHeightCurve:
     serializedVersion: 2
@@ -46,3 +46,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Biome: {fileID: 11400000, guid: 98ac0d1495a051842a2fffa4d4304678, type: 2}

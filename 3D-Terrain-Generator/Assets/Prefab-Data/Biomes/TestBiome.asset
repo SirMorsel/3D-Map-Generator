@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e6cb9d3f012a0439e87994f9262668, type: 3}
+  m_Name: TestBiome
+  m_EditorClassIdentifier: 
+  TerrainConfigurations:
+  - TerrainTypeName: Deep Water
+    Height: 0.3
+    Color: {r: 0.10980393, g: 0.121568635, b: 0.91372555, a: 0}
+  - TerrainTypeName: Shallow Water
+    Height: 0.4
+    Color: {r: 0.10980393, g: 0.83921576, b: 0.91372555, a: 0}
+  - TerrainTypeName: Sand
+    Height: 0.45
+    Color: {r: 0.5471698, g: 0.422238, b: 0.17808829, a: 0}
+  - TerrainTypeName: Gras
+    Height: 0.65
+    Color: {r: 0.6039216, g: 0.1614795, b: 0.11764707, a: 0}
+  - TerrainTypeName: Rock
+    Height: 0.7
+    Color: {r: 0.32941177, g: 0.25490198, b: 0.227451, a: 0}
+  - TerrainTypeName: Rock2
+    Height: 0.85
+    Color: {r: 0.25490198, g: 0.21176472, b: 0.19607845, a: 0}
+  - TerrainTypeName: Snow
+    Height: 1
+    Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 0}

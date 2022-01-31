@@ -7,6 +7,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] DrawMode drawMode;
 
     [SerializeField] ScriptableMap mapData;
+    [SerializeField] ScriptableBiome biomeData;
 
     [SerializeField] string mapName;
     [SerializeField] int mapWidth;
@@ -23,7 +24,8 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] float meshHeightMultiplier;
     [SerializeField] AnimationCurve meshHeightCurve;
 
-    [SerializeField] TerrainTypes[] terrainTypes;
+    [SerializeField] string biomeName;
+    [SerializeField] TerrainType[] terrainTypes;
 
     [SerializeField] bool autoUpdate;
 
@@ -39,9 +41,9 @@ public class MapGenerator : MonoBehaviour
                 float currentHeight = noiseMap[x, y];
                 for (int i = 0; i < terrainTypes.Length; i++)
                 {
-                    if (currentHeight <= terrainTypes[i].GetTerrainHeight())
+                    if (currentHeight <= terrainTypes[i].Height)
                     {
-                        colorMap[y * mapWidth + x] = terrainTypes[i].GetTerrainColor();
+                        colorMap[y * mapWidth + x] = terrainTypes[i].Color;
                         break;
                     }
                 }
@@ -81,11 +83,17 @@ public class MapGenerator : MonoBehaviour
         tempMapData.MeshHeightMultiplier = meshHeightMultiplier;
         tempMapData.MeshHeightCurve = meshHeightCurve;
 
-        /*
-        [SerializeField] TerrainTypes[] terrainTypes;
-        */
 
         return tempMapData;
+    }
+
+    public string GetBiomeNameFromEditor()
+    {
+        return biomeName;
+    }
+    public TerrainType[] GetBiomeData()
+    {
+        return terrainTypes;
     }
 
     public void LoadMapData()
@@ -109,7 +117,10 @@ public class MapGenerator : MonoBehaviour
             meshHeightMultiplier = mapData.MeshHeightMultiplier;
             meshHeightCurve = mapData.MeshHeightCurve;
 
-            //terrainTypes = mapData.Biome.TerrainConfigurations;
+            biomeName = mapData.Biome.name;
+            terrainTypes = mapData.Biome.TerrainConfigurations;
+
+            biomeData = mapData.Biome;
         }
         else
         {
@@ -142,7 +153,7 @@ public class MapGenerator : MonoBehaviour
     {
         return autoUpdate;
     }
-
+    /*
     [System.Serializable]
     public struct TerrainTypes
     {
@@ -160,5 +171,5 @@ public class MapGenerator : MonoBehaviour
         {
             return color;
         }
-    }
+    }*/
 }

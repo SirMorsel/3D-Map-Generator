@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ed60083aef72214eb9da1644671292a, type: 3}
-  m_Name: MySecondMap
+  m_Name: Testymap
   m_EditorClassIdentifier: 
-  MapName: MySecondMap
+  MapName: Testymap
   MapWidth: 100
   MapHeight: 100
-  NoiseScale: 25
-  NumberOfOctaves: 10
-  Persistance: 0.133
-  Lacunarity: 10
-  Seed: 123
-  Offset: {x: 0.8, y: 1.23}
-  MeshHeightMultiplier: 200
+  NoiseScale: 30
+  NumberOfOctaves: 8
+  Persistance: 0.5
+  Lacunarity: 3
+  Seed: 27
+  Offset: {x: 2.33, y: 3.99}
+  MeshHeightMultiplier: 120.27
   MeshHeightCurve:
     serializedVersion: 2
     m_Curve:
@@ -35,15 +35,6 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.26176357
-      value: 0.079504594
-      inSlope: -0.064613245
-      outSlope: -0.064613245
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.13399169
-    - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 2
@@ -55,4 +46,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Biome: {fileID: 11400000, guid: fd1af9349d0b6964faaecaada9600a3e, type: 2}
+  Biome: {fileID: 11400000, guid: 38ce8aca094f91c4983651d4ab82b1f9, type: 2}
