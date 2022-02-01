@@ -27,7 +27,6 @@ public class MeshGenerator
                     meshData.AddTriangle(vertexIndex, vertexIndex + width + 1, vertexIndex + width);
                     meshData.AddTriangle(vertexIndex + width + 1, vertexIndex, vertexIndex + 1);
                 }
-
                 vertexIndex++;
             }
         }

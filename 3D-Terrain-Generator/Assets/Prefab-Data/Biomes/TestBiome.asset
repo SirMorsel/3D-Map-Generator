@@ -15,10 +15,10 @@ MonoBehaviour:
   TerrainConfigurations:
   - TerrainTypeName: Deep Water
     Height: 0.3
-    Color: {r: 0.10980393, g: 0.121568635, b: 0.91372555, a: 0}
+    Color: {r: 0.1254902, g: 0.18431373, b: 0.16470589, a: 0}
   - TerrainTypeName: Shallow Water
     Height: 0.4
-    Color: {r: 0.10980393, g: 0.83921576, b: 0.91372555, a: 0}
+    Color: {r: 0.29411766, g: 0.7607844, b: 0.50980395, a: 0}
   - TerrainTypeName: Sand
     Height: 0.45
     Color: {r: 0.5471698, g: 0.422238, b: 0.17808829, a: 0}

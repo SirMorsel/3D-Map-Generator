@@ -6,12 +6,4 @@ using UnityEngine;
 public class ScriptableBiome : ScriptableObject
 {
     public TerrainType[] TerrainConfigurations;
-/*
-    [System.Serializable]
-    public struct TerrainType
-    {
-        public string TerrainTypeName;
-        public float Heights;
-        public Color Color;
-    }*/
 }

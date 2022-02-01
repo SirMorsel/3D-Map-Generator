@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    [Header("Generator Configs")]
     [SerializeField] DrawMode drawMode;
+    [SerializeField] bool autoUpdate;
 
+    [Header("Scriptable Objects")]
     [SerializeField] ScriptableMap mapData;
     [SerializeField] ScriptableBiome biomeData;
 
-    [SerializeField] string mapName;
-    [SerializeField] [Range(1, 100)] int mapWidth;
-    [SerializeField] [Range(1, 100)] int mapHeight;
+    [Header("Map Properties")]
+    [SerializeField] [Range(1, 100)] int mapWidth;  // X
+    [SerializeField] [Range(1, 100)] int mapHeight; // Z
     [SerializeField] float noiseScale;
 
     [SerializeField] int numberOfOctaves;
@@ -23,14 +26,14 @@ public class MapGenerator : MonoBehaviour
 
     [SerializeField] float meshHeightMultiplier;
     [SerializeField] AnimationCurve meshHeightCurve;
-
-    [SerializeField] string biomeName;
+    
     [SerializeField] TerrainType[] terrainTypes;
 
-    [SerializeField] bool autoUpdate;
+    [Header("Generate/Load/Save Map")]
+    [SerializeField] string mapName;
+    [SerializeField] string biomeName;
 
     private int mapInstanceID;
-
     // Start is called before the first frame update
     public void GenerateMap()
     {
@@ -112,17 +115,20 @@ public class MapGenerator : MonoBehaviour
             persistance = mapData.Persistance;
             lacunarity = mapData.Lacunarity;
 
-            seed = mapData.Seed = seed;
-
-            offset = mapData.Offset = offset;
+            seed = mapData.Seed;
+            offset = mapData.Offset;
 
             meshHeightMultiplier = mapData.MeshHeightMultiplier;
             meshHeightCurve = mapData.MeshHeightCurve;
 
-            biomeName = mapData.Biome.name;
-            terrainTypes = mapData.Biome.TerrainConfigurations;
+            if (mapData.Biome != null)
+            {
+                biomeName = mapData.Biome.name;
+                terrainTypes = mapData.Biome.TerrainConfigurations;
 
-            biomeData = mapData.Biome;
+                biomeData = mapData.Biome;
+            }
+            
         }
         else
         {

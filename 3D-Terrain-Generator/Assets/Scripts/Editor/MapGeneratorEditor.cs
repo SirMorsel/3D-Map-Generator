@@ -27,19 +27,12 @@ public class MapGeneratorEditor : Editor
             SaveMapDataToScriptableObject(mapGenerator.PrepareMapDataForSave(), GetSavedBiome(mapGenerator.GetBiomeNameFromEditor()));
             mapGenerator.GenerateMap();
         }
-        if (GUILayout.Button("Load"))
-        {
-            mapGenerator.LoadMapData();
-            mapGenerator.GenerateMap();
-        }
     }
 
     private void SaveMapDataToScriptableObject(ScriptableMap mapData, ScriptableBiome biomeData)
     {
-        // create biome or return existing
-        //SaveBiomeToScriptableObject(mapData);
         string path = $"Assets/Prefab-Data/Maps/{mapData.MapName}.asset";
-        ScriptableMap newMap = new ScriptableMap();
+        ScriptableMap newMap = ObjectFactory.CreateInstance<ScriptableMap>();
         newMap = mapData;
         newMap.Biome = biomeData;
         AssetDatabase.CreateAsset(newMap, path); 
@@ -47,20 +40,16 @@ public class MapGeneratorEditor : Editor
     }
 
     private void SaveBiomeToScriptableObject(string biomeName, TerrainType[] biomeData) {
-        Debug.Log(biomeData);
         string path = $"Assets/Prefab-Data/Biomes/{biomeName}.asset";
-        ScriptableBiome newBiome = new ScriptableBiome();
+        ScriptableBiome newBiome = ObjectFactory.CreateInstance<ScriptableBiome>();
         newBiome.TerrainConfigurations = biomeData;
         AssetDatabase.CreateAsset(newBiome, path);
         AssetDatabase.SaveAssets();
-
-        
     }
 
     private ScriptableBiome GetSavedBiome(string biomeName)
     {
         string path = $"Assets/Prefab-Data/Biomes/{biomeName}.asset";
-
         return (ScriptableBiome)AssetDatabase.LoadAssetAtPath(path, typeof(ScriptableBiome));
     }
 }

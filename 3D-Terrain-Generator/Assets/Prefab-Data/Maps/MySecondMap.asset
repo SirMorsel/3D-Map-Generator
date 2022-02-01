@@ -19,8 +19,8 @@ MonoBehaviour:
   NumberOfOctaves: 10
   Persistance: 0.133
   Lacunarity: 10
-  Seed: 123
-  Offset: {x: 0.8, y: 1.23}
+  Seed: 27
+  Offset: {x: 2.33, y: 3.99}
   MeshHeightMultiplier: 200
   MeshHeightCurve:
     serializedVersion: 2

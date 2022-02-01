@@ -8,5 +8,4 @@ public struct TerrainType
     public string TerrainTypeName;
     public float Height;
     public Color Color;
-
 }
