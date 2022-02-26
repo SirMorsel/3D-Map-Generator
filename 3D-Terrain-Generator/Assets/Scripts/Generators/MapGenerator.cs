@@ -145,7 +145,7 @@ public class MapGenerator : MonoBehaviour
                 biomeName = mapData.Biome.name;
                 terrainTypes = mapData.Biome.TerrainConfigurations;
 
-                biomeData = mapData.Biome;
+                biomeData = Instantiate(mapData.Biome);
             }
             
         }
